@@ -16,9 +16,8 @@ function DoghnutChart({ accounts }: DoughnutChartProps) {
         labels: ['Bank 1', 'Bank 2', 'Bank 3']
     }
   return (
-      <div>
+      
           <Doughnut data={ data } />
-    </div>
   )
 }
 
