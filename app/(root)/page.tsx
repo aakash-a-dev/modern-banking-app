@@ -1,8 +1,9 @@
 import HeaderBox from '@/components/HeaderBox'
+import RightSidebar from '@/components/RightSidebar';
 import React from 'react'
 
 const Home = () => {
-    const loggedIn = { firstName: 'Aakash' };
+    const loggedIn = { firstName: 'Aakash', lastName: 'Rajput', email: 'aakash@mail.com'};
   return (
       <section className="home">
           <div className="home-content">
@@ -14,7 +15,13 @@ const Home = () => {
                       subtext="Access and manage your account and  transactions efficiently."
                   />
               </header>
+              Recent Transactions
           </div>
+          <RightSidebar
+              user={loggedIn}
+              transactions={[]}
+              banks={[{}, {}]}
+          />
     </section>
   )
 }
