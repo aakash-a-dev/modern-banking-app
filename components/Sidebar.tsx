@@ -45,7 +45,9 @@ export default function Sidebar({ user }: SiderbarProps) {
             </Link>
           )
         })}
+        
       </nav>
+      
     </section>
   )
 }
