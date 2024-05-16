@@ -9,7 +9,7 @@ import {
     FormMessage,
   } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Control } from 'react-hook-form'
+import { Control, FieldPath } from 'react-hook-form'
 import { z } from 'zod'
 import { authFormSchema } from '@/lib/utils'
 
@@ -17,7 +17,7 @@ import { authFormSchema } from '@/lib/utils'
 
 interface CustomInput{
   control: Control<z.infer<typeof authFormSchema>>,
-  name: string,
+  name:  FieldPath<z.infer<typeof authFormSchema>>,
   label: string,
   placeholder: string
 }
@@ -34,7 +34,7 @@ function CustomInput({control, name, label, placeholder}: CustomInput) {
                   <div className='flex w-full flex-col'>
                       <FormControl>
                           <Input placeholder={placeholder}
-                          type="password"
+                          type={name === 'password' ? 'password':'text'}
                               className='input-class'
                               {...field}
                           />
