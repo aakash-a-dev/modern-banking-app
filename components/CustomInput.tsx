@@ -9,13 +9,24 @@ import {
     FormMessage,
   } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { Control } from 'react-hook-form'
+import { z } from 'zod'
+import { authFormSchema } from '@/lib/utils'
 
 
-function CustomInput({form, name, label, placeholder}) {
+
+interface CustomInput{
+  control: Control<z.infer<typeof authFormSchema>>,
+  name: string,
+  label: string,
+  placeholder: string
+}
+
+function CustomInput({control, name, label, placeholder}: CustomInput) {
   return (
     <div>
             <FormField
-          control={form.control}
+          control={control}
           name={name}
           render={({ field }) => (
               <div className='form-item'>
