@@ -18,12 +18,14 @@ import {
 import { Input } from "@/components/ui/input"
 import CustomInput from './CustomInput'
 import { authFormSchema } from '@/lib/utils'
+import { Loader2 } from 'lucide-react'
 
 
 
 
 export default function AuthForm({ type }: { type: string }) {
     const [user, setUser] = useState(null);
+    const [isLoading, setisLoading] = useState(false)
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof authFormSchema>>({
@@ -37,7 +39,9 @@ export default function AuthForm({ type }: { type: string }) {
   function onSubmit(values: z.infer<typeof authFormSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values)
+    setisLoading(true);
+    console.log(values);
+    setisLoading(false);
     }
     
 
@@ -73,9 +77,22 @@ export default function AuthForm({ type }: { type: string }) {
         <CustomInput control={form.control} name="email" label="Username" placeholder="Enter your username"/>
         <CustomInput control={form.control} name="password" label="Password" placeholder="Enter your Password"/>                      
         
-        <Button type="submit">Submit</Button>
+        <Button className='form-btn' type="submit" disabled={isLoading}>{isLoading ? (
+          <>
+          <Loader2 size={20} className='animate-spin' /> &nbsp; 
+          Loading ...
+          </>
+        ) : type === 'sign-in'? 'Sign In' : 'Sign Up'}
+        </Button>
       </form>
     </Form>
+    <footer className='flex justify-center gap-1'>
+      <p>{type === 'sign-in'? "Don't have an account?" : "Already have an account"}
+      </p>
+      <Link href={type === 'sign-in' ? '/sign-up' : '/sign-up'} >
+      {type === 'sign-in' ? 'Sign Up' : 'Sign In'}
+      </Link>
+    </footer>
                   </>
           )}
   </section>
