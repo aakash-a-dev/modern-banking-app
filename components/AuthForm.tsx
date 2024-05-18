@@ -87,9 +87,9 @@ export default function AuthForm({ type }: { type: string }) {
       </form>
     </Form>
     <footer className='flex justify-center gap-1'>
-      <p>{type === 'sign-in'? "Don't have an account?" : "Already have an account"}
+      <p className='text-14 font-normal text-gray-600'>{type === 'sign-in'? "Don't have an account?" : "Already have an account"}
       </p>
-      <Link href={type === 'sign-in' ? '/sign-up' : '/sign-up'} >
+      <Link className='form-link' href={type === 'sign-in' ? '/sign-up' : '/sign-up'} >
       {type === 'sign-in' ? 'Sign Up' : 'Sign In'}
       </Link>
     </footer>
