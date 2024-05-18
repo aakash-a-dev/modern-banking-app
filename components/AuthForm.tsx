@@ -76,7 +76,8 @@ export default function AuthForm({ type }: { type: string }) {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <CustomInput control={form.control} name="email" label="Username" placeholder="Enter your username"/>
         <CustomInput control={form.control} name="password" label="Password" placeholder="Enter your Password"/>                      
-        
+       
+        <div className='flex flex-col gap-4'>
         <Button className='form-btn' type="submit" disabled={isLoading}>{isLoading ? (
           <>
           <Loader2 size={20} className='animate-spin' /> &nbsp; 
@@ -84,12 +85,14 @@ export default function AuthForm({ type }: { type: string }) {
           </>
         ) : type === 'sign-in'? 'Sign In' : 'Sign Up'}
         </Button>
+        </div>
+   
       </form>
     </Form>
     <footer className='flex justify-center gap-1'>
       <p className='text-14 font-normal text-gray-600'>{type === 'sign-in'? "Don't have an account?" : "Already have an account"}
       </p>
-      <Link className='form-link' href={type === 'sign-in' ? '/sign-up' : '/sign-up'} >
+      <Link className='form-link' href={type === 'sign-in' ? '/sign-up' : '/sign-in'} >
       {type === 'sign-in' ? 'Sign Up' : 'Sign In'}
       </Link>
     </footer>
