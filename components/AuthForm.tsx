@@ -27,16 +27,17 @@ export default function AuthForm({ type }: { type: string }) {
     const [user, setUser] = useState(null);
     const [isLoading, setisLoading] = useState(false)
 
+    const formSchema = authFormSchema(type);
   // 1. Define your form.
-  const form = useForm<z.infer<typeof authFormSchema>>({
-    resolver: zodResolver(authFormSchema),
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
         email: "",
     },
   })
  
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof authFormSchema>) {
+  function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     setisLoading(true);

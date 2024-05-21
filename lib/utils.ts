@@ -196,7 +196,7 @@ export const getTransactionStatus = (date: Date) => {
 };
 
 
-export const authFormSchema = (type) => z.object({
+export const authFormSchema = (type: string) => z.object({
 //  Sign-up
   fname: type === 'sign-in' ? z.string().optional(): z.string().min(3),
   lname: type === 'sign-in' ? z.string().optional(): z.string().min(3),
