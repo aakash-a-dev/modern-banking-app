@@ -76,10 +76,13 @@ export default function AuthForm({ type }: { type: string }) {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         {type === 'sign-up' && (
           <>
-        <CustomInput control={form.control} name="email" label="First Name" placeholder="Enter your Firstname"/>
-        <CustomInput control={form.control} name="email" label="Last Name" placeholder="Enter your Lastname"/>
-        <CustomInput control={form.control} name="email" label="Address" placeholder="Enter your Address"/>
-        <CustomInput control={form.control} name="password" label="Password" placeholder="Enter your Password"/>                      
+        <CustomInput control={form.control} name="fname" label="First Name" placeholder="Enter your Firstname"/>
+        <CustomInput control={form.control} name="lname" label="Last Name" placeholder="Enter your Lastname"/>
+        <CustomInput control={form.control} name="address1" label="Address" placeholder="Enter your Address"/>
+        <CustomInput control={form.control} name="state" label="State" placeholder="Example: Surat"/>
+        <CustomInput control={form.control} name="postalcode" label="Postal Code" placeholder="Example: 39400"/>
+        <CustomInput control={form.control} name="dateOfBirth" label="Date Of Birth" placeholder="DD-MM-YYYY"/>                  
+        <CustomInput control={form.control} name="ssn" label="SSN" placeholder="1234"/>                  
           </>
         )}
         <CustomInput control={form.control} name="email" label="Username" placeholder="Enter your username"/>
