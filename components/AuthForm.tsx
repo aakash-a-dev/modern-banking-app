@@ -99,8 +99,8 @@ export default function AuthForm({ type }: { type: string }) {
         {type === 'sign-up' && (
           <>
           <div className='flex gap-4'>
-        <CustomInput control={form.control} name="fname" label="First Name" placeholder="Aakash"/>
-        <CustomInput control={form.control} name="lname" label="Last Name" placeholder="Rajput"/>
+        <CustomInput control={form.control} name="firstName" label="First Name" placeholder="Aakash"/>
+        <CustomInput control={form.control} name="lastName" label="Last Name" placeholder="Rajput"/>
           </div>
           <CustomInput control={form.control} name="address1" label="Address" placeholder="Enter your Address"/>
         <CustomInput control={form.control} name="city" label="City" placeholder="Enter your City"/>
